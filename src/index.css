@@ -10,7 +10,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(#f0f6f8, #e0e1e7);
+  background: #618264;
 }
 
 main {
@@ -18,8 +18,8 @@ main {
   max-width: 40rem;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: #3a4346;
-  color: #f0f6f8;
+  background-color: #d0e7d2;
+  color: #618264;
   border-radius: 6px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 }
@@ -41,7 +41,7 @@ img {
 header h1 {
   margin: 0;
   font-size: 1.75rem;
-  color: #f7e596;
+  color: #618264;
 }
 
 label {
@@ -49,7 +49,7 @@ label {
   font-size: 0.85rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: #dfd9be;
+  color: #618264;
 }
 
 input {
@@ -66,17 +66,19 @@ form button {
   width: 100%;
   padding: 0.75rem;
   margin-top: 1rem;
-  background-color: #f7e596;
+  background-color: #618264;
   border: none;
   border-radius: 4px;
   font: inherit;
   font-weight: bold;
-  color: #3a4346;
+  color: #d0e7d2;
   cursor: pointer;
 }
 
 form button:hover {
-  background-color: #f9e175;
+  background-color: #d0e7d2;
+  color: #618264;
+  border: 2px solid #618264 !important;
 }
 
 ul {
@@ -89,7 +91,7 @@ ul {
 }
 
 li {
-  background-color: #475357;
+  background-color: #618264;
   padding: 1rem;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
@@ -104,13 +106,13 @@ li article {
 li h2 {
   margin: 0;
   font-size: 1.25rem;
-  color: #b1c1c3;
+  color: #d0e7d2;
 }
 
 li p {
   margin: 0;
   font-size: 0.85rem;
-  color: #dfd9be;
+  color: #d0e7d2;
 }
 
 li button {
@@ -123,10 +125,34 @@ li button {
 }
 
 li button:hover {
+  color: #d0e7d2;
+}
+
+.infobox {
+  margin: 2rem 0;
+  padding: 0.5rem;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  font-size: 0.85rem;
+  border-radius: 4px;
+}
+
+.infobox-hint {
+  border: 1px solid #618264;
+  color: #618264;
+}
+
+.infobox-warning.warning--low {
+  border: 1px solid #f6d84f;
+  color: #f6d84f;
+}
+
+.infobox-warning.warning--medium {
+  border: 1px solid #f9a73b;
   color: #f9a73b;
 }
 
-.fallback {
-  text-align: center;
-  color: #acd1ce;
+.infobox-warning.warning--high {
+  border: 1px solid #f97373;
+  color: #f97373;
 }

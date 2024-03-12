@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CourseGoalList from "./components/CourseGoalList.tsx";
 import Header from "./components/Header.tsx";
@@ -13,6 +13,13 @@ export type CourseGoal = {
 }
 
 export default function App() {
+  useEffect(() => {
+    const tempArray: Array<CourseGoal> = JSON.parse(localStorage.getItem('goals') || '');
+    const goals:Array<CourseGoal> = tempArray;
+  if (goals) {
+   setGoals(goals);
+  }
+  },[])
   const [goals, setGoals] = useState<Array<CourseGoal>>([]);
   function handleAddGoal(goal: string, summary: string) {
     setGoals((prevGoals) => {
@@ -21,11 +28,16 @@ export default function App() {
         title: goal,
         description: summary
       }
+      localStorage.setItem('goals', JSON.stringify([...prevGoals, newGoal]));
       return [...prevGoals, newGoal]
     })
   }
   function handleDelete(id: number) {
-    setGoals(prevGoals => prevGoals.filter((goal) => goal.id !== id));
+    setGoals(prevGoals => {
+      const newGoals = prevGoals.filter((goal) => goal.id !== id);
+      localStorage.setItem('goals', JSON.stringify([...newGoals]));
+      return newGoals;
+    });
   }
   return (
     <main>
