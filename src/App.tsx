@@ -14,12 +14,14 @@ export type CourseGoal = {
 
 export default function App() {
   useEffect(() => {
-    const tempArray: Array<CourseGoal> = JSON.parse(localStorage.getItem('goals') || '');
-    const goals:Array<CourseGoal> = tempArray;
-  if (goals) {
-   setGoals(goals);
-  }
-  },[])
+    if (localStorage.getItem("goals") !== null) {
+      const tempArray: Array<CourseGoal> = JSON.parse(localStorage.getItem('goals') || '');
+      const goals: Array<CourseGoal> = tempArray;
+      if (goals) {
+        setGoals(goals);
+      }
+    }
+  }, [])
   const [goals, setGoals] = useState<Array<CourseGoal>>([]);
   function handleAddGoal(goal: string, summary: string) {
     setGoals((prevGoals) => {
@@ -42,7 +44,7 @@ export default function App() {
   return (
     <main>
       <Header image={{ src: goalsImg, alt: 'A list of goals' }}>
-        <h1>Course Goals</h1>
+        <h1>Goals</h1>
       </Header>
       <NewGoal onAddGoal={handleAddGoal} />
       <CourseGoalList goals={goals} onDelete={handleDelete} />
